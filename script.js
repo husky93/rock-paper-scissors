@@ -36,10 +36,10 @@ function game() {
     for(let i = 0; i < 5; i++) {
         let playerChoice = prompt('Choose! Rock, Paper or Scissors!');
         playerChoice = playerChoice === null ? playerChoice : playerChoice.toLowerCase();
-        if(playerChoice === null) {
+        if (playerChoice === null) {
             alert('You cancelled the game!');
             break;
-        } else if(playerChoice !== 'rock' || playerChoice !== 'paper' || playerChoice !== 'scissors') {
+        } else if (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
             alert('You can choose only rock, paper or scissors!');
             i--;
             continue;
