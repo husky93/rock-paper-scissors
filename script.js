@@ -36,7 +36,11 @@ function game() {
     let computerScore = 0;
     let playerScore = 0;
     for(let i = 0; i < 5; i++) {
-
+        const playerChoice = prompt('Choose! Rock, Paper or Scissors!');
+        playerChoice = playerChoice.toLowerCase();
+        if(playerChoice !== 'rock' || playerChoice !== 'paper' || playerChoice !== 'scissors') {
+            
+        }
 
         console.log(`Score is:
         Player: ${playerScore} - Computer: ${computerScore}`);
