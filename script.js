@@ -36,6 +36,7 @@ function game() {
     for(let i = 0; i < 5; i++) {
         let playerChoice = prompt('Choose! Rock, Paper or Scissors!');
         playerChoice = playerChoice === null ? playerChoice : playerChoice.toLowerCase();
+        // Check if player is entering correct values
         if (playerChoice === null) {
             alert('You cancelled the game!');
             break;
@@ -44,10 +45,13 @@ function game() {
             i--;
             continue;
         }
+
+        // Play current round
+        const roundResult = playRound(playerChoice, computerPlay());
         console.log(`Score is:
-        Player: ${playerScore} - Computer: ${computerScore}`);
+    Player: ${playerScore} - Computer: ${computerScore}`);
     }
-    computerScore > playerScore ? console.log('Computer wins!') ? playerScore > computerScore: console.log('Player wins!') : console.log('Draw!');
+    computerScore > playerScore ? console.log('Game result: Computer wins!') ? playerScore > computerScore: console.log('Game result: Player wins!') : console.log('Game result: Draw!');
 }
 
 game();
