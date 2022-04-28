@@ -1,5 +1,3 @@
-console.log(playRound('rock', computerPlay()))
-
 function computerPlay() {
     const choice = ['rock', 'paper', 'scissors'];
     const index = Math.floor(Math.random() * 3);    //Get random number between 0-2
@@ -39,7 +37,8 @@ function game() {
         const playerChoice = prompt('Choose! Rock, Paper or Scissors!');
         playerChoice = playerChoice.toLowerCase();
         if(playerChoice !== 'rock' || playerChoice !== 'paper' || playerChoice !== 'scissors') {
-            
+            i--;
+            break;
         }
 
         console.log(`Score is:
