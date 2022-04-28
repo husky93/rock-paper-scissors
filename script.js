@@ -47,6 +47,7 @@ function game() {
         }
         // Play current round
         const roundResult = playRound(playerChoice, computerPlay());
+        console.log(roundResult);
 
         // Compute the whole game score
         if(roundResult.includes('win')) {
@@ -58,7 +59,7 @@ function game() {
         console.log(`Score is:
     Player: ${playerScore} - Computer: ${computerScore}`);
     }
-    computerScore > playerScore ? console.log('Game result: Computer wins!') ? playerScore > computerScore: console.log('Game result: Player wins!') : console.log('Game result: Draw!');
+    computerScore > playerScore ? console.log('Game result: Computer wins!') : playerScore > computerScore ? console.log('Game result: Player wins!') : console.log('Game result: Draw!');
 }
 
 game();
