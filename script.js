@@ -31,3 +31,12 @@ function playRound(playerSelection, computerSelection) {
             return `Draw! You both chose ${playerSelection}.`;
     }
 }
+
+function game() {
+    let computerScore = 0;
+    let playerScore = 0;
+    for(let i = 0; i < 5; i++) {
+        console.log(`Score is:
+        Player: ${playerScore} - Computer: ${computerScore}`);
+    }
+}
