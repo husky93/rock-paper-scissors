@@ -45,9 +45,16 @@ function game() {
             i--;
             continue;
         }
-
         // Play current round
         const roundResult = playRound(playerChoice, computerPlay());
+
+        // Compute the whole game score
+        if(roundResult.includes('win')) {
+            ++playerScore; 
+        } else if (roundResult.includes('lose')) {
+            ++computerScore;
+        }
+
         console.log(`Score is:
     Player: ${playerScore} - Computer: ${computerScore}`);
     }
