@@ -62,6 +62,12 @@ function game() {
     // Player: ${playerScore} - Computer: ${computerScore}`);
     // }
 
+    const buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => button.addEventListener('click', e => {
+        console.log(e.target);
+    }));
+
     computerScore > playerScore ? console.log('Game result: Computer wins!') :
             playerScore > computerScore ? console.log('Game result: Player wins!') :
             console.log('Game result: Draw!');
