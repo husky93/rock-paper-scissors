@@ -40,6 +40,11 @@ function game() {
     const buttons = document.querySelectorAll('button');
 
     buttons.forEach(button => button.addEventListener('click', e => {
+        const roundResult = playRound(e.target.innerText, computerPlay());
+
+        if(roundResult.includes('lose')) ++computerScore;
+        if(roundResult.includes('win')) ++playerScore;
+
         playerScoreSelector.textContent = (`Player: ${playerScore}`);
         computerScoreSelector.textContent = (`Computer: ${computerScore}`);
     }));
