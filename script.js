@@ -33,44 +33,18 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    let computerScore = 0;
     let playerScore = 0;
-    // for(let i = 0; i < 5; i++) {
-    //     let playerChoice = prompt('Choose! Rock, Paper or Scissors!');
-    //     playerChoice = playerChoice === null ? playerChoice : playerChoice.toLowerCase();
-    //     // Check if player is entering correct values
-    //     if (playerChoice === null) {
-    //         alert('You cancelled the game!');
-    //         break;
-    //     } else if (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
-    //         alert('You can choose only rock, paper or scissors!');
-    //         i--;
-    //         continue;
-    //     }
-    //     // Play current round
-    //     const roundResult = playRound(playerChoice, computerPlay());
-    //     console.log(roundResult);
-
-    //     // Compute game score
-    //     if(roundResult.includes('win')) {
-    //         ++playerScore; 
-    //     } else if (roundResult.includes('lose')) {
-    //         ++computerScore;
-    //     }
-
-    //     console.log(`Score is:
-    // Player: ${playerScore} - Computer: ${computerScore}`);
-    // }
-
+    let computerScore = 0;
+    const playerScoreSelector = document.querySelector('.playerscore');
+    const computerScoreSelector = document.querySelector('.computerescore');
     const buttons = document.querySelectorAll('button');
 
     buttons.forEach(button => button.addEventListener('click', e => {
-        console.log(e.target);
+        playerScoreSelector.textContent = (`Player: ${playerScore}`);
+        computerScoreSelector.textContent = (`Computer: ${computerScore}`);
     }));
 
-    computerScore > playerScore ? console.log('Game result: Computer wins!') :
-            playerScore > computerScore ? console.log('Game result: Player wins!') :
-            console.log('Game result: Draw!');
+
 }
 
 game();
