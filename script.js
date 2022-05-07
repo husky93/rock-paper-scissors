@@ -35,9 +35,17 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    const playerScoreSelector = document.querySelector('.playerscore');
-    const computerScoreSelector = document.querySelector('.computerescore');
+    const resultContainer = document.querySelector('.result');
+    const roundResultText = document.createElement('p');
+    const playerScoreText = document.createElement('p');
+    const computerScoreText = document.createElement('p');
     const buttons = document.querySelectorAll('button');
+    resultContainer.appendChild(roundResultText);
+    resultContainer.appendChild(playerScoreText);
+    resultContainer.appendChild(computerScoreText);
+
+    playerScoreText.textContent = ('Player: 0');
+    computerScoreText.textContent = ('Computer: 0');
 
     buttons.forEach(button => button.addEventListener('click', e => {
         const roundResult = playRound(e.target.innerText, computerPlay());
@@ -45,8 +53,8 @@ function game() {
         if(roundResult.includes('lose')) ++computerScore;
         if(roundResult.includes('win')) ++playerScore;
 
-        playerScoreSelector.textContent = (`Player: ${playerScore}`);
-        computerScoreSelector.textContent = (`Computer: ${computerScore}`);
+        playerScoreText.textContent = (`Player: ${playerScore}`);
+        computerScoreText.textContent = (`Computer: ${computerScore}`);
     }));
 
 
