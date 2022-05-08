@@ -11,7 +11,7 @@ const computerScoreText = document.querySelector('.computerscore');
 playAgainButton.textContent = 'Play again';
 playAgainButton.classList.add('playagain');
 
-buttons.forEach(button => button.addEventListener('click', e => rpsButtonHandler(e)));
+buttons.forEach(button => button.addEventListener('click', e => rpsButtonOnClick(e)));
 playAgainButton.addEventListener('click', () => playAgain());
 
 
@@ -53,24 +53,23 @@ function changeTextScore() {
     computerScoreText.textContent = computerScore;
 }
 
-function rpsButtonHandler(e) {
+function endGame() {
+    roundResultText.textContent = `Game over ${playerScore === 5 ? 'player' : computerScore === 5 ? 'computer' : ''} wins`;
+    buttons.forEach(button => btnContainer.removeChild(button));
+    btnContainer.appendChild(playAgainButton);
+    playerScore = 0;
+    computerScore = 0;
+}
+
+function rpsButtonOnClick(e) {
     const roundResult = playRound(e.target.innerText, computerPlay());
     
     if(roundResult.includes('lose')) ++computerScore;
     if(roundResult.includes('win')) ++playerScore;
     changeTextScore();
     
-    if(playerScore === 5 || computerScore === 5) {
-        roundResultText.textContent = `Game over ${playerScore === 5 ? 'player' : computerScore === 5 ? 'computer' : ''} wins`;
-        buttons.forEach(button => btnContainer.removeChild(button));
-        btnContainer.appendChild(playAgainButton);
-        playerScore = 0;
-        computerScore = 0;
-        return;
-    }
-    else {
-        roundResultText.textContent = roundResult;
-    }
+    if(playerScore === 5 || computerScore === 5) endGame();
+    else roundResultText.textContent = roundResult;
 }
 
 function playAgain() {
