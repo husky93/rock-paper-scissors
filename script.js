@@ -1,5 +1,13 @@
 /* Coded by Maciek Sroka. 29.04.2022 */
 
+const buttons = document.querySelectorAll('.btn-rps');
+const btnContainer = document.querySelector('.btn-container');
+const playAgainButton = document.createElement('button');
+playAgainButton.textContent = 'Play again';
+
+game(buttons, btnContainer, playAgainButton);
+
+
 function computerPlay() {
     const choice = ['rock', 'paper', 'scissors'];
     const index = Math.floor(Math.random() * 3);    //Get random number between 0-2
@@ -32,32 +40,35 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+function game(buttons, btnContainer, playAgainButton) {
     let playerScore = 0;
     let computerScore = 0;
 
-    const btnContainer = document.querySelector('.btn-container');
     const roundResultText = document.querySelector('.roundresult');
     const playerScoreText = document.querySelector('.playerscore');
     const computerScoreText = document.querySelector('.computerscore');
-    const buttons = document.querySelectorAll('.btn-rps');
 
     playerScoreText.textContent = ('0');
     computerScoreText.textContent = ('0');
 
     buttons.forEach(button => button.addEventListener('click', e => {
         const roundResult = playRound(e.target.innerText, computerPlay());
-        
+
         if(roundResult.includes('lose')) ++computerScore;
         if(roundResult.includes('win')) ++playerScore;
-        roundResultText.textContent = (roundResult);
-        playerScoreText.textContent = (playerScore);
-        computerScoreText.textContent = (computerScore);
+        playerScoreText.textContent = playerScore;
+        computerScoreText.textContent = computerScore;
+
+        if(playerScore === 5 || computerScore === 5) {
+            roundResultText.textContent = `Game over ${playerScore === 5 ? 'player' : computerScore === 5 ? 'computer' : ''} wins`;
+            buttons.forEach(button => btnContainer.removeChild(button));
+            btnContainer.appendChild(playAgainButton);
+            return;
+        } 
+        else {
+            roundResultText.textContent = roundResult;
+        }
     }));
-
-    if(playerScore === 5 || computerScore === 5) {
-
-    }
+    
+    buttons.forEach(button => btnContainer.appendChild(button));
 }
-
-game();
