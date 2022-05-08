@@ -75,5 +75,6 @@ function rpsButtonOnClick(e) {
 function playAgain() {
     btnContainer.removeChild(playAgainButton);
     buttons.forEach(button => btnContainer.appendChild(button));
+    roundResultText.textContent = '';
     changeTextScore();
 }
