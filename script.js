@@ -55,15 +55,17 @@ function changeTextScore() {
 
 function endGame() {
     roundResultText.textContent = `Game over ${playerScore === 5 ? 'you win!' : computerScore === 5 ? 'computer wins' : ''}`;
+    if(playerScore === 5) {
         window.confetti({
-           particleCount: 500,
-           angle: 270,
-           spread: 180,
-           decay: 0.9,
-           origin: {
-               y: -0.5
-           }
+            particleCount: 500,
+            angle: 270,
+            spread: 180,
+            decay: 0.9,
+            origin: {
+                y: -0.5
+            }
         });
+    }    
     buttons.forEach(button => btnContainer.removeChild(button));
     btnContainer.appendChild(playAgainButton);
     playerScore = 0;
