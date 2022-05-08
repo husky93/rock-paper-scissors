@@ -7,12 +7,24 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="container">
-        <button class = "rock">Rock</button>
-        <button class = "paper">Paper</button>
-        <button class = "scissors">Scissors</button>
+    <div class="container btn-container">
+        <button class = "btn-rps rock">Rock</button>
+        <button class = "btn-rps paper">Paper</button>
+        <button class = "btn-rps scissors">Scissors</button>
     </div>
     <div class="result">
+        <p class="roundresult"></p>
+        <div class="row">
+            <div class="container">
+                <h4>Player score:</h4>
+                <p class = "playerscore">0</p>
+            </div>
+            <div class="container">
+                <h4>Computer Score:</h4>
+                <p class = "computerscore"></p>
+            </div>
+        </div>
+
     </div>
 
     <script src="./script.js"></script>
