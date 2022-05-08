@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="container btn-container">
-        <button class = "btn-rps rock">Rock</button>
-        <button class = "btn-rps paper">Paper</button>
-        <button class = "btn-rps scissors">Scissors</button>
+    <div class="column">
+        <h1>Rock Paper Scissors game</h1>
+        <div class="btn-container">
+            <button class = "btn-rps rock">Rock</button>
+            <button class = "btn-rps paper">Paper</button>
+            <button class = "btn-rps scissors">Scissors</button>
+        </div>
     </div>
     <div class="result">
         <p class="roundresult"></p>
@@ -25,7 +28,6 @@
                 <p class = "computerscore">0</p>
             </div>
         </div>
-
     </div>
 
     <script src="./script.js"></script>
